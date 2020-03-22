@@ -1,3 +1,10 @@
+from gtts import gTTS
+import playsound
+import os
+
+
+
+
 MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
                    'C': '-.-.', 'D': '-..', 'E': '.',
                    'F': '..-.', 'G': '--.', 'H': '....',
@@ -44,12 +51,22 @@ def decrypt(message):
 
 
 def main(): 
-    message = "Some text"
-    result = encrypt(message.upper()) 
-    print (result) 
-  
-    message = "... --- -- .  - . -..- - "
-    result = decrypt(message) 
-    print (result) 
+    option = input("Options: 1 -> Type Text to morse, 2 -> type Morse to text.")
+    option_sound = input("Do you want sound?  'yes', 'no' : ")
+    message = input("Type: ")
+    language = 'en'
+    result = ''
+    
+    if option == '1':
+        result = encrypt(message.upper()) 
+        print (result) 
+    elif option == '2':
+        result = decrypt(message) 
+        print (result) 
+    if option_sound == 'yes':
+        myobj = gTTS(text=result, lang=language, slow=False)
+        myobj.save("./exercise_05/Sound.mp3")
+        playsound.playsound('./exercise_05/Sound.mp3', True)
+
 
 main()
