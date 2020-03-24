@@ -42,7 +42,7 @@ class AddressBook:
         np.savetxt('./exercise_06/2darray.csv', self.contact_list, delimiter=',', fmt='%s')
 
     def load(self):
-        self.contact_list = np.load('./exercise_06/Database.npy')
+        self.contact_list = list(np.load('./exercise_06/Database.npy'))
 
 
 AB = AddressBook()
