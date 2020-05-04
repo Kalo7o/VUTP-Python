@@ -11,6 +11,7 @@ alex.left(135)
 alex.forward(150)
 alex.left(135)
 
+
 alex = turtle.Turtle()
 alex.forward(150)
 alex.right(90)

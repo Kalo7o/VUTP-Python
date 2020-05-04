@@ -17,6 +17,7 @@ class AddressBook:
         ]
         self.contact_list.append(contact_item)
 
+
     def update_contact(self, id):
         print("Change Name: 0, Address: 1, Birth day: 2, Phone: 3, Email: 4, Profession: 5, Interests: 6")
         option = int(input("Choose an parameter: "))

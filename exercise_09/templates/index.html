@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if contacts %}
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Birth Day</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Profession</th>
+            <th>Interests</th>
+        </thead>
+    {%for i in range(0, len)%}
+        <tr>
+            {%for c in range(0, 7)%}
+            <td>{{ contacts[i][c] }}</td>
+            {% endfor %}
+            <td><a href="/update/{{ i }}">Update</a></td>
+            <td><a href="/remove/{{ i }}">Remove</a></td>
+        </tr>
+        {% endfor %}
+        {% else %}
+    </table>
+    {% endif %}
+
+    <form action="/create" method="POST">
+        <input name="name" placeholder="Name" type="text">
+        <input name="address" placeholder="Address" type="text">
+        <input name="bday" placeholder="Birth day" type="text">
+        <input name="phone" placeholder="Phone number" type="text">
+        <input name="email" placeholder="email" type="text">
+        <input name="profession" placeholder="profession" type="text">
+        <input name="interests" placeholder="interests" type="text">
+        <input type="submit" value="Create">
+    </form>
+    <br />
+    <form action="/search" method="POST">
+        <input type="text" name="regex">
+        <input type="submit" value="Search">
+    </form>
+</body>
+
+</html>
